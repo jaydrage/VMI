@@ -31,6 +31,15 @@ This system:
 
 ## Project Structure
 
+iaps/
+├── api/ # FastAPI application
+├── data/ # Data processing modules
+├── ml/ # Machine learning models
+├── airflow/ # Airflow DAGs for scheduling
+├── db/ # Database models and migrations
+└── docker/ # Docker configuration files
+
+
 ## Features
 
 - **Data Collection**
@@ -60,21 +69,25 @@ This system:
 
 Create a `.env` file with:
 
+IQMETRIX_API_KEY=your_api_key
+IQMETRIX_API_URL=https://api.iqmetrix.com
+DB_CONNECTION=postgresql://user:password@localhost:5432/iaps
+
 ## Development
 
 1. Install dependencies:
 
 ```bash:README.md
-pip install -r requirements.txt
-```
+   pip install -r requirements.txt
+   ```
 
 2. Run migrations:
-```bash
-alembic upgrade head
-```
+   ```bash
+   alembic upgrade head
+   ```
 
 3. Start the development server:
-```bash
+   ```bash
 uvicorn api.main:app --reload
 ```
 
@@ -84,7 +97,7 @@ Basic deployment using Docker:
 
 ```bash
 docker-compose up -d
-```
+   ```
 
 ## Future Enhancements
 
